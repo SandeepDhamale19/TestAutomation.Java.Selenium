@@ -1,0 +1,597 @@
+2020-09-29 23:23:16 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE [[*]AVENGERS_CHARACTERISTICS]
+(
+	[ID] INT NOT NULL, 
+    [ALIGNMENT] VARCHAR(10) NULL, 
+    [EYE_COLOR] VARCHAR(50) NULL, 
+    [HAIR_COLOR] VARCHAR(50) NULL, 
+    [GENDER] VARCHAR(20) NULL,
+	[CITIZENSHIP] VARCHAR(50) NULL,
+    [DEATH] BOOLEAN NULL, 
+    [RETURN] BOOLEAN NULL, 
+    [URL] VARCHAR(1000) NULL, 
+    [NOTES] VARCHAR(MAX) NULL 
+)
+"; expected "identifier"; SQL statement:
+CREATE TABLE [Avengers_Characteristics]
+(
+	[Id] INT NOT NULL, 
+    [Alignment] VARCHAR(10) NULL, 
+    [Eye_Color] VARCHAR(50) NULL, 
+    [Hair_Color] VARCHAR(50) NULL, 
+    [Gender] VARCHAR(20) NULL,
+	[Citizenship] VARCHAR(50) NULL,
+    [Death] BOOLEAN NULL, 
+    [Return] BOOLEAN NULL, 
+    [URL] VARCHAR(1000) NULL, 
+    [Notes] VARCHAR(MAX) NULL 
+)
+ [42001-200]
+2020-09-29 23:24:49 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "/*CREATE TABLE Avengers_Characters_Info
+(
+	Id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+    First_Name VARCHAR(50) NOT NULL, 
+    Last_Name VARCHAR(50) NULL, 
+    Character_Name VARCHAR(50) NOT NULL, 
+    Number_Of_Appearances INT NULL, 
+    Current BOOLEAN NULL
+)*/
+
+CREATE TABLE Avengers_Characteristics
+(
+	Id INT NOT NULL, 
+    Alignment VARCHAR(10) N[*]`ULL, 
+    Eye_Color VARCHAR(50) NULL, 
+    Hair_Color VARCHAR(50) NULL, 
+    Gender VARCHAR(20) NULL,
+	Citizenship VARCHAR(50) NULL,
+    Death BOOLEAN NULL, 
+    Return BOOLEAN NULL, 
+    URL VARCHAR(1000) NULL, 
+    Notes VARCHAR(MAX) NULL 
+)"; SQL statement:
+/*CREATE TABLE Avengers_Characters_Info
+(
+	Id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+    First_Name VARCHAR(50) NOT NULL, 
+    Last_Name VARCHAR(50) NULL, 
+    Character_Name VARCHAR(50) NOT NULL, 
+    Number_Of_Appearances INT NULL, 
+    Current BOOLEAN NULL
+)*/
+
+CREATE TABLE Avengers_Characteristics
+(
+	Id INT NOT NULL, 
+    Alignment VARCHAR(10) N`ULL, 
+    Eye_Color VARCHAR(50) NULL, 
+    Hair_Color VARCHAR(50) NULL, 
+    Gender VARCHAR(20) NULL,
+	Citizenship VARCHAR(50) NULL,
+    Death BOOLEAN NULL, 
+    Return BOOLEAN NULL, 
+    URL VARCHAR(1000) NULL, 
+    Notes VARCHAR(MAX) NULL 
+) [42000-200]
+2020-09-29 23:58:48 jdbc[10]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "LASTNAME" not found; SQL statement:
+INSERT INTO Avengers_Characters_Info (First_Name, LastName, Character_Name, Number_Of_Appearances) VALUES ('Steven', 'Rogers', 'Captain America', 34581)
+ [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.table.Table.getColumn(Table.java:703)
+	at org.h2.command.Parser.parseColumn(Parser.java:1450)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1435)
+	at org.h2.command.Parser.parseInsertGivenTable(Parser.java:1804)
+	at org.h2.command.Parser.parseInsert(Parser.java:1749)
+	at org.h2.command.Parser.parsePrepared(Parser.java:954)
+	at org.h2.command.Parser.parse(Parser.java:843)
+	at org.h2.command.Parser.parse(Parser.java:815)
+	at org.h2.command.Parser.prepareCommand(Parser.java:738)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.eclipse.datatools.sqltools.sqleditor.result.SimpleSQLResultRunnable.runStatement(SimpleSQLResultRunnable.java:131)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:158)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2020-09-30 00:02:28 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO Avengers_Characters_Info (First_Name, Last_Name, Character_Name, Number_Of_Appearances) VALUES ('Steven', 'Rogers', 'Captain America', 34581, TRUE)
+ [21002-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.dml.Insert.prepare(Insert.java:319)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.eclipse.datatools.sqltools.sqleditor.result.SimpleSQLResultRunnable.runStatement(SimpleSQLResultRunnable.java:131)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:158)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2020-09-30 00:13:37 jdbc[15]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]/* Avengers_Characters_Info
+INSERT INTO Avengers_Characters_Info (First_Name, Last_Name, Character_Name, Number_Of_Appearances, Current) VALUES ('Steven', 'Rogers', 'Captain America', 34581, TRUE)"; SQL statement:
+/* Avengers_Characters_Info
+INSERT INTO Avengers_Characters_Info (First_Name, Last_Name, Character_Name, Number_Of_Appearances, Current) VALUES ('Steven', 'Rogers', 'Captain America', 34581, TRUE) [42000-200]
+2020-09-30 00:14:57 jdbc[16]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO Avengers_Characteristics (Id, Alignment, Eye_Color, Hair_Color, Gender, Citizenship, Death, Return, URL, Notes) VALUES ('Good', 'Blue', 'White', 'Male', 'American', 1,1, 'http://marvel.wikia.com/Steven_Rogers_(Earth-616)', 'Since joining the New Avengers: First death Killed by Morlun. Ressurected in a brand new body. Died in Amazing Spider-Man #700. Eventually mainfested in his body that Octavious stole and then took over again.') [21002-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.dml.Insert.prepare(Insert.java:319)
+	at org.h2.command.Parser.prepareCommand(Parser.java:744)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.eclipse.datatools.sqltools.sqleditor.result.SimpleSQLResultRunnable.runStatement(SimpleSQLResultRunnable.java:131)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:158)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2020-09-30 00:40:19 jdbc[21]: exception
+org.h2.jdbc.JdbcSQLDataException: Cannot parse "TIMESTAMP" constant "01-01-2011 00:00"; SQL statement:
+INSERT INTO Avengers_Moviebase (Id, Movie_Name, Year_Of_Release) VALUES (1,'Captain America: The First Avenger', '01-01-2011 00:00' )
+ [22007-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:457)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:136)
+	at org.h2.value.Value.convertToTimestamp(Value.java:1169)
+	at org.h2.value.Value.convertTo(Value.java:822)
+	at org.h2.value.Value.convertTo(Value.java:772)
+	at org.h2.value.TypeInfo.cast(TypeInfo.java:515)
+	at org.h2.table.Column.validateConvertUpdateSequence(Column.java:378)
+	at org.h2.table.Table.validateConvertUpdateSequence(Table.java:845)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:187)
+	at org.h2.command.dml.Insert.update(Insert.java:151)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.eclipse.datatools.sqltools.sqleditor.result.SimpleSQLResultRunnable.runStatement(SimpleSQLResultRunnable.java:131)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:158)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.IllegalArgumentException: 1-1-2011
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:173)
+	at org.h2.util.DateTimeUtils.parseTimestamp(DateTimeUtils.java:316)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:134)
+	... 15 more
+2020-09-30 00:41:54 jdbc[22]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO AVENGERS_MOVIEBASE (ID, MOVIE_NAME, YEAR_OF_RELEASE) VALUES (1,'Captain America: The First Avenger', 01-01-2011 00[*]:00 )"; expected "[, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO Avengers_Moviebase (Id, Movie_Name, Year_Of_Release) VALUES (1,'Captain America: The First Avenger', 01-01-2011 00:00 ) [42001-200]
+2020-09-30 00:45:49 jdbc[23]: exception
+org.h2.jdbc.JdbcSQLDataException: Cannot parse "TIMESTAMP" constant "01-01-2011 00:00"; SQL statement:
+INSERT INTO Avengers_Moviebase (Id, Movie_Name, Year_Of_Release) VALUES (1,'Captain America: The First Avenger',  ts '01-01-2011 00:00'  ) [22007-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:457)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:136)
+	at org.h2.command.Parser.readTermWithIdentifier(Parser.java:4671)
+	at org.h2.command.Parser.readTerm(Parser.java:4311)
+	at org.h2.command.Parser.readFactor(Parser.java:3343)
+	at org.h2.command.Parser.readSum(Parser.java:3330)
+	at org.h2.command.Parser.readConcat(Parser.java:3305)
+	at org.h2.command.Parser.readCondition(Parser.java:3108)
+	at org.h2.command.Parser.readExpression(Parser.java:3059)
+	at org.h2.command.Parser.parseValuesForCommand(Parser.java:1877)
+	at org.h2.command.Parser.parseInsertGivenTable(Parser.java:1817)
+	at org.h2.command.Parser.parseInsert(Parser.java:1749)
+	at org.h2.command.Parser.parsePrepared(Parser.java:954)
+	at org.h2.command.Parser.parse(Parser.java:843)
+	at org.h2.command.Parser.parse(Parser.java:815)
+	at org.h2.command.Parser.prepareCommand(Parser.java:738)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.eclipse.datatools.sqltools.sqleditor.result.SimpleSQLResultRunnable.runStatement(SimpleSQLResultRunnable.java:131)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:158)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.IllegalArgumentException: 1-1-2011
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:173)
+	at org.h2.util.DateTimeUtils.parseTimestamp(DateTimeUtils.java:316)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:134)
+	... 22 more
+2020-09-30 00:46:13 jdbc[24]: exception
+org.h2.jdbc.JdbcSQLDataException: Cannot parse "TIMESTAMP" constant "01-01-2011 00:00:00.00"; SQL statement:
+INSERT INTO Avengers_Moviebase (Id, Movie_Name, Year_Of_Release) VALUES (1,'Captain America: The First Avenger',  ts '01-01-2011 00:00:00.00'  ) [22007-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:457)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:136)
+	at org.h2.command.Parser.readTermWithIdentifier(Parser.java:4671)
+	at org.h2.command.Parser.readTerm(Parser.java:4311)
+	at org.h2.command.Parser.readFactor(Parser.java:3343)
+	at org.h2.command.Parser.readSum(Parser.java:3330)
+	at org.h2.command.Parser.readConcat(Parser.java:3305)
+	at org.h2.command.Parser.readCondition(Parser.java:3108)
+	at org.h2.command.Parser.readExpression(Parser.java:3059)
+	at org.h2.command.Parser.parseValuesForCommand(Parser.java:1877)
+	at org.h2.command.Parser.parseInsertGivenTable(Parser.java:1817)
+	at org.h2.command.Parser.parseInsert(Parser.java:1749)
+	at org.h2.command.Parser.parsePrepared(Parser.java:954)
+	at org.h2.command.Parser.parse(Parser.java:843)
+	at org.h2.command.Parser.parse(Parser.java:815)
+	at org.h2.command.Parser.prepareCommand(Parser.java:738)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.eclipse.datatools.sqltools.sqleditor.result.SimpleSQLResultRunnable.runStatement(SimpleSQLResultRunnable.java:131)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:158)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.IllegalArgumentException: 1-1-2011
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:173)
+	at org.h2.util.DateTimeUtils.parseTimestamp(DateTimeUtils.java:316)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:134)
+	... 22 more
+2020-09-30 00:47:07 jdbc[25]: exception
+org.h2.jdbc.JdbcSQLDataException: Cannot parse "TIMESTAMP" constant "01-01-2011 00:00:00.00"; SQL statement:
+INSERT INTO Avengers_Moviebase (Id, Movie_Name, Year_Of_Release) VALUES (1,'Captain America: The First Avenger', '01-01-2011 00:00:00.00')
+ [22007-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:457)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:136)
+	at org.h2.value.Value.convertToTimestamp(Value.java:1169)
+	at org.h2.value.Value.convertTo(Value.java:822)
+	at org.h2.value.Value.convertTo(Value.java:772)
+	at org.h2.value.TypeInfo.cast(TypeInfo.java:515)
+	at org.h2.table.Column.validateConvertUpdateSequence(Column.java:378)
+	at org.h2.table.Table.validateConvertUpdateSequence(Table.java:845)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:187)
+	at org.h2.command.dml.Insert.update(Insert.java:151)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.eclipse.datatools.sqltools.sqleditor.result.SimpleSQLResultRunnable.runStatement(SimpleSQLResultRunnable.java:131)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:158)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.IllegalArgumentException: 1-1-2011
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:173)
+	at org.h2.util.DateTimeUtils.parseTimestamp(DateTimeUtils.java:316)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:134)
+	... 15 more
+2020-09-30 00:48:07 jdbc[26]: exception
+org.h2.jdbc.JdbcSQLDataException: Cannot parse "TIMESTAMP" constant "01-01-2011"; SQL statement:
+INSERT INTO Avengers_Moviebase (Id, Movie_Name, Year_Of_Release) VALUES (1,'Captain America: The First Avenger', '01-01-2011')
+ [22007-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:457)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:136)
+	at org.h2.value.Value.convertToTimestamp(Value.java:1169)
+	at org.h2.value.Value.convertTo(Value.java:822)
+	at org.h2.value.Value.convertTo(Value.java:772)
+	at org.h2.value.TypeInfo.cast(TypeInfo.java:515)
+	at org.h2.table.Column.validateConvertUpdateSequence(Column.java:378)
+	at org.h2.table.Table.validateConvertUpdateSequence(Table.java:845)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:187)
+	at org.h2.command.dml.Insert.update(Insert.java:151)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.eclipse.datatools.sqltools.sqleditor.result.SimpleSQLResultRunnable.runStatement(SimpleSQLResultRunnable.java:131)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:158)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.IllegalArgumentException: 1-1-2011
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:173)
+	at org.h2.util.DateTimeUtils.parseTimestamp(DateTimeUtils.java:316)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:134)
+	... 15 more
+2020-09-30 00:49:53 jdbc[27]: exception
+org.h2.jdbc.JdbcSQLDataException: Cannot parse "TIMESTAMP" constant "01-01-2011 00:00:00.000"; SQL statement:
+INSERT INTO Avengers_Moviebase (Id, Movie_Name, Year_Of_Release) VALUES (1,'Captain America: The First Avenger', '01-01-2011 00:00:00.000')
+ [22007-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:457)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:136)
+	at org.h2.value.Value.convertToTimestamp(Value.java:1169)
+	at org.h2.value.Value.convertTo(Value.java:822)
+	at org.h2.value.Value.convertTo(Value.java:772)
+	at org.h2.value.TypeInfo.cast(TypeInfo.java:515)
+	at org.h2.table.Column.validateConvertUpdateSequence(Column.java:378)
+	at org.h2.table.Table.validateConvertUpdateSequence(Table.java:845)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:187)
+	at org.h2.command.dml.Insert.update(Insert.java:151)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.eclipse.datatools.sqltools.sqleditor.result.SimpleSQLResultRunnable.runStatement(SimpleSQLResultRunnable.java:131)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:158)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.IllegalArgumentException: 1-1-2011
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:173)
+	at org.h2.util.DateTimeUtils.parseTimestamp(DateTimeUtils.java:316)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:134)
+	... 15 more
+2020-09-30 00:52:44 jdbc[29]: exception
+org.h2.jdbc.JdbcSQLDataException: Cannot parse "TIMESTAMP" constant "2011-01-01 00:00:00..000"; SQL statement:
+INSERT INTO Avengers_Moviebase (Id, Movie_Name, Year_Of_Release) VALUES (1,'Captain America: The First Avenger', '2011-01-01 00:00:00..000' ) [22007-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:457)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:136)
+	at org.h2.value.Value.convertToTimestamp(Value.java:1169)
+	at org.h2.value.Value.convertTo(Value.java:822)
+	at org.h2.value.Value.convertTo(Value.java:772)
+	at org.h2.value.TypeInfo.cast(TypeInfo.java:515)
+	at org.h2.table.Column.validateConvertUpdateSequence(Column.java:378)
+	at org.h2.table.Table.validateConvertUpdateSequence(Table.java:845)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:187)
+	at org.h2.command.dml.Insert.update(Insert.java:151)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at org.eclipse.datatools.sqltools.sqleditor.result.SimpleSQLResultRunnable.runStatement(SimpleSQLResultRunnable.java:131)
+	at org.eclipse.datatools.sqltools.editor.core.result.ResultSupportRunnable.run(ResultSupportRunnable.java:158)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.IllegalArgumentException: 2011-01-01 00:00:00..000
+	at org.h2.util.DateTimeUtils.parseNanos(DateTimeUtils.java:277)
+	at org.h2.util.DateTimeUtils.parseTimeNanos(DateTimeUtils.java:250)
+	at org.h2.util.DateTimeUtils.parseTimestamp(DateTimeUtils.java:351)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:134)
+	... 15 more
+2020-09-30 08:46:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT FIRST_NAME FROM [[*]DBO].[AVENGERS_CHARACTERS_INFO] WHERE CHARACTER_NAME = 'Captain America'"; expected "identifier"; SQL statement:
+SELECT First_Name FROM [dbo].[Avengers_Characters_Info] WHERE Character_Name = 'Captain America' [42001-200]
+2020-09-30 09:01:53 database: flush
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/sande/eclipse-workspace/TestAutomation.Database/Files/Database.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at DBProvider.SQLHelper.GetData(SQLHelper.java:30)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:599)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:147)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:764)
+	at org.testng.TestRunner.run(TestRunner.java:585)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.runSuites(TestNG.java:1069)
+	at org.testng.TestNG.run(TestNG.java:1037)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/sande/eclipse-workspace/TestAutomation.Database/Files/Database.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 53 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/sande/eclipse-workspace/TestAutomation.Database/Files/Database.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 47 more
+2020-09-30 09:05:56 database: flush
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/sande/eclipse-workspace/TestAutomation.Database/Files/Database.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at DBProvider.SQLHelper.GetData(SQLHelper.java:30)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:599)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:147)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:764)
+	at org.testng.TestRunner.run(TestRunner.java:585)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.runSuites(TestNG.java:1069)
+	at org.testng.TestNG.run(TestNG.java:1037)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/sande/eclipse-workspace/TestAutomation.Database/Files/Database.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 53 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/sande/eclipse-workspace/TestAutomation.Database/Files/Database.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 47 more
+2020-09-30 09:06:38 database: flush
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/sande/eclipse-workspace/TestAutomation.Database/Files/Database.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.message.DbException.convert(DbException.java:347)
+	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:93)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:2877)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:481)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:402)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:3579)
+	at org.h2.mvstore.db.MVTableEngine$Store.open(MVTableEngine.java:170)
+	at org.h2.mvstore.db.MVTableEngine.init(MVTableEngine.java:103)
+	at org.h2.engine.Database.getPageStore(Database.java:2659)
+	at org.h2.engine.Database.open(Database.java:675)
+	at org.h2.engine.Database.openDatabase(Database.java:307)
+	at org.h2.engine.Database.<init>(Database.java:301)
+	at org.h2.engine.Engine.openSession(Engine.java:74)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at DBProvider.SQLHelper.GetData(SQLHelper.java:30)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:599)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:147)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:764)
+	at org.testng.TestRunner.run(TestRunner.java:585)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.runSuites(TestNG.java:1069)
+	at org.testng.TestNG.run(TestNG.java:1037)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: General error: "java.lang.IllegalStateException: The file is locked: nio:C:/Users/sande/eclipse-workspace/TestAutomation.Database/Files/Database.mv.db [1.4.200/7]" [50000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 53 more
+Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/Users/sande/eclipse-workspace/TestAutomation.Database/Files/Database.mv.db [1.4.200/7]
+	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:950)
+	at org.h2.mvstore.FileStore.open(FileStore.java:172)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:381)
+	... 47 more
+2020-09-30 09:28:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Method is not allowed for a query. Use execute or executeQuery instead of executeUpdate; SQL statement:
+SELECT First_Name FROM PUBLIC.Avengers_Characters_Info WHERE Character_Name = 'Captain America' [90001-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.command.Prepared.update(Prepared.java:219)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeUpdateInternal(JdbcStatement.java:168)
+	at org.h2.jdbc.JdbcStatement.executeUpdate(JdbcStatement.java:126)
+	at DBProvider.SQLHelper.GetData(SQLHelper.java:43)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:64)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:132)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:599)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:174)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:822)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:147)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:764)
+	at org.testng.TestRunner.run(TestRunner.java:585)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:384)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:378)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:337)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:286)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1218)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1140)
+	at org.testng.TestNG.runSuites(TestNG.java:1069)
+	at org.testng.TestNG.run(TestNG.java:1037)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+2020-09-30 10:14:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-200]
+2020-09-30 10:20:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-200]
+2020-09-30 10:21:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: The object is already closed [90007-200]

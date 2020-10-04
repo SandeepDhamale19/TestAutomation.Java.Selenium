@@ -1,0 +1,12 @@
+2020-09-30 08:59:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT FIRST_NAME FROM [[*]DBO].[AVENGERS_CHARACTERS_INFO] WHERE CHARACTER_NAME = 'Captain America'"; expected "identifier"; SQL statement:
+SELECT First_Name FROM [dbo].[Avengers_Characters_Info] WHERE Character_Name = 'Captain America' [42001-200]
+2020-09-30 08:59:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AVENGERS_CHARACTERS_INFO" not found; SQL statement:
+SELECT First_Name FROM Avengers_Characters_Info WHERE Character_Name = 'Captain America' [42102-200]
+2020-09-30 09:22:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AVENGERS_CHARACTERS_INFO" not found; SQL statement:
+SELECT First_Name FROM Avengers_Characters_Info WHERE Character_Name = 'Captain America' [42102-200]
+2020-09-30 09:25:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AVENGERS_CHARACTERS_INFO" not found; SQL statement:
+SELECT First_Name FROM PUBLIC.Avengers_Characters_Info WHERE Character_Name = 'Captain America' [42102-200]
